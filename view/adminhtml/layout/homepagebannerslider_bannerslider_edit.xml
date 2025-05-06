@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * ManiyaTech
+ *
+ * @author        Milan Maniya
+ * @package       ManiyaTech_HomepageBannerSlider
+ */
+-->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="styles"/>
+    <body>
+        <referenceContainer name="content">
+            <uiComponent name="homepagebannerslider_edit_form"/>
+        </referenceContainer>
+    </body>
+</page>

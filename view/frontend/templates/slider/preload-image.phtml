@@ -1,0 +1,27 @@
+<?php
+/**
+ * ManiyaTech
+ *
+ * @author        Milan Maniya
+ * @package       ManiyaTech_HomepageBannerSlider
+ */
+
+/** @var \ManiyaTech\HomepageBannerSlider\Block\Bannerslider\Slider $block */
+$collection = $block->getSliderCollection();
+$slider = $collection->getFirstItem();
+
+if ($slider && $slider->getId()) {
+    $mediaUrl = $block->getMediaUrl().'ManiyaTech/Slider/';
+
+    $mobileImageName = $slider->getMobileImage();
+    $desktopImageName = $slider->getDesktopImage();
+
+    $mobileImageUrl = $mobileImageName ? $escaper->escapeHtml($mediaUrl . $mobileImageName) : '';
+    $desktopImageUrl = $escaper->escapeHtml($mediaUrl . $desktopImageName);
+
+    // Preload mobile image only if different from desktop
+    if (!empty($mobileImageUrl) && $mobileImageUrl !== $desktopImageUrl): ?>
+        <link rel="preload" as="image" href="<?= /* @noEscape */ $mobileImageUrl ?>" />
+    <?php endif; ?>
+    <link rel="preload" as="image" href="<?= /* @noEscape */ $desktopImageUrl ?>" />
+<?php } ?>

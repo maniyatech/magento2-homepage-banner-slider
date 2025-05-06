@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * ManiyaTech
+ *
+ * @author        Milan Maniya
+ * @package       ManiyaTech_HomepageBannerSlider
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="bannerslider_listing_grid_data_source" xsi:type="string">ManiyaTech\HomepageBannerSlider\Model\ResourceModel\Bannerslider\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <virtualType name="ManiyaTech\HomepageBannerSlider\Model\ResourceModel\Bannerslider\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">homepagebannerslider</argument>
+            <argument name="resourceModel" xsi:type="string">ManiyaTech\HomepageBannerSlider\Model\ResourceModel\Bannerslider\Collection</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="ManiyaTech\HomepageBannerSlider\Ui\Component\Listing\Columns\Bannerslider\MassStatus">
+        <arguments>
+            <argument name="data" xsi:type="array">
+                <item name="urlPath" xsi:type="string">homepagebannerslider/bannerslider/massStatus</item>
+                <item name="paramName" xsi:type="string">status</item>
+                <item name="confirm" xsi:type="array">
+                    <item name="title" xsi:type="string" translatable="true">Change Status</item>
+                    <item name="message" xsi:type="string" translatable="true">Are you sure to change the status of selected banner(s)?</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+</config>

@@ -1,0 +1,125 @@
+/**
+ * ManiyaTech
+ *
+ * @author        Milan Maniya
+ * @package       ManiyaTech_HomepageBannerSlider
+ */
+
+ @color-hp-slider-color-white: #fff;
+ @color-hp-slider-color-blue: #1979c3;
+
+& when (@media-common = true) {
+    .cms-index-index {
+        .blocks-promo {
+            display: none;
+        }
+        .nav-sections,
+        .page-header {
+            margin-bottom: 0;
+        }
+
+    }
+
+    .main-home-slider-img {
+        display: none;
+        position: relative;
+        img {
+            height: 450px;
+            object-fit: cover;
+            width: 100%;
+        }
+    }
+    .main-home-slider {
+        &.owl-theme {
+            .owl-dots {
+                bottom: 20px;
+                position: absolute;
+                text-align: center;
+                width: 100%;
+            }
+
+            .owl-nav button {
+                &.owl-prev,
+                &.owl-next {
+                    color: @color-hp-slider-color-white;
+                    font-size: 50px;
+                    font-weight: 300;
+                    left: 20px;
+                    position: absolute;
+                    top: 40%;
+                }
+
+                &.owl-next {
+                    left: unset;
+                    right: 20px;
+                }
+
+            }
+        }
+    }
+
+    .main-home-slider-info {
+        align-items: center;
+        display: flex;
+        height: ~'calc(100% - 40px)';
+        justify-content: center;
+        left: 0%;
+        padding: 20px;
+        position: absolute;
+        top: 0;
+        width: ~'calc(100% - 40px)';
+
+        &-inner {
+            text-align: center;
+        }
+
+        &-title {
+            color: @color-hp-slider-color-white;
+            font-size: 28px;
+            margin: 0 0 25px 0;
+        }
+
+        &-button {
+            background: @color-hp-slider-color-blue;
+            background-image: none;
+            border: 1px solid @color-hp-slider-color-blue;
+            border-radius: 3px;
+            box-sizing: border-box;
+            color: @color-hp-slider-color-white;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 1.8rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+            padding: 7px 15px;
+            padding: 10px 15px;
+            text-decoration: none;
+            vertical-align: middle;
+            &:hover,
+            &:visited {
+                color: @color-hp-slider-color-white;
+                text-decoration: none;
+            }
+        }
+
+        .top-left & {
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+
+        .top-right & {
+            align-items: flex-start;
+            justify-content: flex-end;
+        }
+
+        .bottom-left & {
+            align-items: flex-end;
+            justify-content: flex-start;
+        }
+
+        .bottom-right & {
+            align-items: flex-end;
+            justify-content: flex-end;
+        }
+    }
+}

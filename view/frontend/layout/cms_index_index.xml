@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * ManiyaTech
+ *
+ * @author        Milan Maniya
+ * @package       ManiyaTech_HomepageBannerSlider
+ */
+-->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="ManiyaTech_HomepageBannerSlider::css/owl.carousel.min.css" />
+        <css src="ManiyaTech_HomepageBannerSlider::css/owl.theme.default.min.css" />
+        <link src="ManiyaTech_HomepageBannerSlider::js/HomepageBannerSlider.js" />
+    </head>
+    <body>
+        <referenceBlock name="head.additional">
+            <block ifconfig="homepagebannerslider/general/enable" class="ManiyaTech\HomepageBannerSlider\Block\Bannerslider\Slider" name="slider.preload.image" template="ManiyaTech_HomepageBannerSlider::slider/preload-image.phtml"/>
+        </referenceBlock>
+        <referenceContainer name="page.wrapper">
+            <block ifconfig="homepagebannerslider/general/enable" class="ManiyaTech\HomepageBannerSlider\Block\Bannerslider\Slider" name="main_slider" template="ManiyaTech_HomepageBannerSlider::slider/slider.phtml" after="page.top"/>
+        </referenceContainer>
+    </body>
+</page>

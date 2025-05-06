@@ -1,0 +1,122 @@
+<?php
+/**
+ * ManiyaTech
+ *
+ * @author        Milan Maniya
+ * @package       ManiyaTech_HomepageBannerSlider
+ */
+
+/** @var \ManiyaTech\HomepageBannerSlider\Block\Bannerslider\Slider $block */
+$collection = $block->getSliderCollection();
+$mediaUrl = $block->getMediaUrl() . 'ManiyaTech/Slider/';
+$sliderCount = $collection->count();
+
+if (!$sliderCount) {
+    return;
+}
+
+$sliderLoop = $block->getSliderLoop();
+$sliderDots = $block->getSliderDots();
+$sliderArrow = $block->getSliderArrow();
+$sliderAutoplay = $block->getSliderAutoplay();
+$sliderDesktopItem = $block->getDesktopItemCount();
+$sliderMobileItem = $block->getMobileItemCount();
+$sliderAutoPlaySpeed = $block->getSliderAutoplayTiming();
+$isEnableSlider = $sliderCount > 1 ? 'owl-carousel owl-theme' : '';
+?>
+<div class="main-home-slider_section">
+    <div class="main-home-slider <?= $escaper->escapeHtmlAttr($isEnableSlider) ?>">
+        <?php $index = 0; ?>
+        <?php foreach ($collection as $slider): ?>
+            <?php
+                $imagePriority = $index === 0
+                    ? "fetchpriority='high' loading='eager'"
+                    : "fetchpriority='low' loading='lazy'";
+                $title = $slider->getTitle();
+                $desktopImage = $slider->getDesktopImage();
+                $mobileImage = $slider->getMobileImage() ?: $desktopImage;
+                $desktopTitle = $slider->getDesktopSliderTitle();
+                $mobileTitle = $slider->getMobileSliderTitle() ?: $desktopTitle;
+                $textPosition = $slider->getEnableButton() && $slider->getTextPosition()
+                    ? $slider->getTextPosition() : 'center';
+                $hasButton = (bool) $slider->getEnableButton();
+                $buttonTitle = $slider->getButtontitle();
+                $url = $slider->getUrlKey() ?: 'javascript:void(0)';
+                $openNewTab = (bool) $slider->getOpenNewTab();
+                $targetAttr = $openNewTab
+                    ? ' target="_blank" rel="noopener noreferrer"'
+                    : '';
+            ?>
+            <!-- Desktop Banner -->
+            <div class="main-home-slider-img desktop-section-bannerslider 
+                        <?= $escaper->escapeHtmlAttr($textPosition) ?>">
+                <img src="<?= $escaper->escapeUrl($mediaUrl . $desktopImage) ?>"
+                     alt="<?= $escaper->escapeHtmlAttr($title) ?>"
+                     title="<?= $escaper->escapeHtmlAttr($title) ?>"
+                     <?= /* @noEscape */ $imagePriority ?> />
+
+                <?php if ($desktopTitle || $hasButton): ?>
+                    <div class="main-home-slider-info">
+                        <div class="main-home-slider-info-inner">
+                            <?php if ($desktopTitle): ?>
+                                <h3 class="main-home-slider-info-title">
+                                    <?= /* @noEscape */ $desktopTitle ?>
+                                </h3>
+                            <?php endif; ?>
+                            <?php if ($hasButton): ?>
+                                <a href="<?= $escaper->escapeUrl($url) ?>"
+                                   class="main-home-slider-info-button action"
+                                   title="<?= $escaper->escapeHtmlAttr($buttonTitle) ?>"
+                                   <?= /* @noEscape */ $targetAttr ?>>
+                                    <?= /* @noEscape */ $buttonTitle ?>
+                                </a>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                <?php endif; ?>
+            </div>
+
+            <!-- Mobile Banner -->
+            <div class="main-home-slider-img mobile-section-bannerslider 
+                        <?= $escaper->escapeHtmlAttr($textPosition) ?>">
+                <img src="<?= $escaper->escapeUrl($mediaUrl . $mobileImage) ?>"
+                     alt="<?= $escaper->escapeHtmlAttr($title) ?>"
+                     title="<?= $escaper->escapeHtmlAttr($title) ?>"
+                     <?= /* @noEscape */ $imagePriority ?> />
+
+                <?php if ($mobileTitle || $hasButton): ?>
+                    <div class="main-home-slider-info">
+                        <div class="main-home-slider-info-inner">
+                            <?php if ($mobileTitle): ?>
+                                <h3 class="main-home-slider-info-title">
+                                    <?= /* @noEscape */ $mobileTitle ?>
+                                </h3>
+                            <?php endif; ?>
+                            <?php if ($hasButton): ?>
+                                <a href="<?= $escaper->escapeUrl($url) ?>"
+                                   class="main-home-slider-info-button action"
+                                   title="<?= $escaper->escapeHtmlAttr($buttonTitle) ?>"
+                                   <?= /* @noEscape */ $targetAttr ?>>
+                                    <?= /* @noEscape */ $buttonTitle ?>
+                                </a>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                <?php endif; ?>
+            </div>
+            <?php $index++; ?>
+        <?php endforeach; ?>
+    </div>
+</div>
+<script>
+    window.bannerSliderData = <?= /* @noEscape */ json_encode([
+        'bannerSlider_infinite' => $sliderLoop,
+        'bannerSlider_showDots' => $sliderDots,
+        'bannerSlider_showArrow' => $sliderArrow,
+        'bannerSlider_autoplay' => $sliderAutoplay,
+        'bannerSlider_itemDesktop' => $sliderDesktopItem,
+        'bannerSlider_itemMobile' => $sliderMobileItem,
+        'bannerSlider_autoplayTimeout' => $sliderAutoPlaySpeed,
+        'bannerSlider_items' => $sliderCount,
+    ]) ?>;
+</script>

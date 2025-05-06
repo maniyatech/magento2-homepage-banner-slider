@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * ManiyaTech
+ *
+ * @author        Milan Maniya
+ * @package       ManiyaTech_HomepageBannerSlider
+ */
+-->
+
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="homepagebannerslider" resource="default" engine="innodb" comment="Homepage Banner Slider">
+        <column xsi:type="int" name="id" unsigned="true" nullable="false" identity="true" comment="ID"/>
+        <column xsi:type="varchar" name="title" nullable="false" length="255" comment="Title"/>
+        <column xsi:type="varchar" name="desktop_slider_title" nullable="false" length="255" comment="Desktop Slider Title"/>
+        <column xsi:type="varchar" name="mobile_slider_title" nullable="false" length="255" comment="Mobile Slider Title"/>
+        <column xsi:type="smallint" name="enable_button" unsigned="false" nullable="false" default="0" comment="Enable Button"/>
+        <column xsi:type="varchar" name="buttontitle" nullable="false" length="255" comment="Button Title"/>
+        <column xsi:type="varchar" name="url_key" nullable="false" length="255" comment="Slider Url"/>
+        <column xsi:type="varchar" name="position" nullable="false" length="50" comment="Position"/>
+        <column xsi:type="varchar" name="text_position" nullable="false" length="255" comment="Text Position"/>
+        <column xsi:type="smallint" name="open_new_tab" unsigned="false" nullable="false" default="1" comment="Open Link In New Tab"/>
+        <column xsi:type="varchar" name="desktop_image" nullable="false" length="255" comment="Desktop Image Name"/>
+        <column xsi:type="varchar" name="mobile_image" nullable="false" length="255" comment="Mobile Image Name"/>
+        <column xsi:type="smallint" name="status" unsigned="false" nullable="false" default="1" comment="Status"/>
+        <column xsi:type="varchar" name="store_id" nullable="false" length="255" comment="Store Id"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" comment="Updated At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+</schema>

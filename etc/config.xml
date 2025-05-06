@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * ManiyaTech
+ *
+ * @author        Milan Maniya
+ * @package       ManiyaTech_HomepageBannerSlider
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Store/etc/config.xsd">
+    <default>
+        <homepagebannerslider>
+            <general>
+                <enable>1</enable>
+            </general>
+             <slider>
+                <autoplay>1</autoplay>
+                <autoplay_timing>5000</autoplay_timing>
+                <item_desktop>1</item_desktop>
+                <item_mobile>1</item_mobile>
+                <show_arrow>1</show_arrow>
+                <show_dots>0</show_dots>
+                <infinite>1</infinite>
+            </slider>
+        </homepagebannerslider>
+    </default>
+</config>

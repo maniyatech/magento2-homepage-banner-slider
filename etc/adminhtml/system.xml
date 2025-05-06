@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * ManiyaTech
+ *
+ * @author        Milan Maniya
+ * @package       ManiyaTech_HomepageBannerSlider
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="homepagebannerslider" showInDefault="1" showInWebsite="1" showInStore="1" type="text" translate="Homepage Banner Slider" sortOrder="90">
+            <label>Homepage Banner Slider</label>
+            <tab>maniyatech</tab>
+            <resource>ManiyaTech_HomepageBannerSlider::config_bannerslider</resource>
+            <group id="general" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20">
+                <label>General Settings</label>
+                <field id="enable" translate="Enable Module" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable Module</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="slider" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20">
+                <label>Slider Settings</label>
+                <depends>
+                    <field id="*/general/enable">1</field>
+                </depends>
+                <field id="autoplay" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Slider Autoplay</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="autoplay_timing" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Slider Autoplay Timing</label>
+                    <depends><field id="autoplay">1</field></depends>
+                    <validate>required-entry validate-digits</validate>
+                </field>
+
+                <field id="item_desktop" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Slider Item For Desktop</label>
+                    <validate>required-entry validate-digits</validate>
+                  </field>
+
+                <field id="item_mobile" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Slider Item For mobile</label>
+                    <validate>required-entry validate-digits</validate>
+                  </field>
+
+                <field id="show_arrow" translate="label" type="select" sortOrder="4" showInDefault="4" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Show Arrow</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="show_dots" translate="label" type="select" sortOrder="4" showInDefault="4" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Show Dots</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                 <field id="infinite" translate="label" type="select" sortOrder="4" showInDefault="4" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Infinite</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
