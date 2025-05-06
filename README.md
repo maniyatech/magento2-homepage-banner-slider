@@ -34,7 +34,7 @@ php bin/magento setup:di:compile
 
 If you prefer to install this module manually, kindly follow the steps described below - 
 
-- Download the latest version [here](https://github.com/maniyatech/magento-2-homepage-banner-slider/archive/refs/heads/main.zip) 
+- Download the latest version [here](https://github.com/maniyatech/magento2-homepage-banner-slider/archive/refs/heads/main.zip) 
 - Create a folder path like this `app/code/ManiyaTech/HomepageBannerSlider` and extract the `main.zip` file into it.
 - Navigate to Magento root directory and execute the below commands.
 
