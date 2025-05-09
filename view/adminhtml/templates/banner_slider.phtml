@@ -1,0 +1,16 @@
+<?php
+/**
+ * ManiyaTech
+ *
+ * @author        Milan Maniya
+ * @package       ManiyaTech_HomepageBannerSlider
+ */
+
+/** @var \ManiyaTech\HomepageBannerSlider\Block\Adminhtml\BannerSlider $block */
+$allowedExtensions = $block->getAllowedExtensions();
+?>
+
+<script>
+    window.allowedExtensions = '<?= /* @noEscape */ $escaper->escapeJs($allowedExtensions) ?>';
+</script>
+

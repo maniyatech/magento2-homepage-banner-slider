@@ -2,8 +2,8 @@
 /**
  * ManiyaTech
  *
- * @author        Milan Maniya
- * @package       ManiyaTech_HomepageBannerSlider
+ * @author  Milan Maniya
+ * @package ManiyaTech_HomepageBannerSlider
  */
 
 namespace ManiyaTech\HomepageBannerSlider\Model;
@@ -17,10 +17,17 @@ use Magento\Ui\DataProvider\AbstractDataProvider;
 
 class DataProvider extends AbstractDataProvider
 {
+    public const BASE_PATH = 'ManiyaTech/Slider/';
+
     /**
      * @var array
      */
     protected $loadedData = [];
+
+    /**
+     * @var string
+     */
+    public string $basePath;
 
     /**
      * @var CollectionFactory
@@ -38,14 +45,14 @@ class DataProvider extends AbstractDataProvider
     protected $mediaDirectory;
 
     /**
-     * @param string $name
-     * @param string $primaryFieldName
-     * @param string $requestFieldName
-     * @param CollectionFactory $collectionFactory
+     * @param string                $name
+     * @param string                $primaryFieldName
+     * @param string                $requestFieldName
+     * @param CollectionFactory     $collectionFactory
      * @param StoreManagerInterface $storeManager
-     * @param Filesystem $filesystem
-     * @param array $meta
-     * @param array $data
+     * @param Filesystem            $filesystem
+     * @param array                 $meta
+     * @param array                 $data
      */
     public function __construct(
         string $name,
@@ -59,6 +66,7 @@ class DataProvider extends AbstractDataProvider
     ) {
         $this->collection = $collectionFactory->create();
         $this->storeManager = $storeManager;
+        $this->basePath = self::BASE_PATH;
         $this->mediaDirectory = $filesystem->getDirectoryRead(DirectoryList::MEDIA);
         parent::__construct($name, $primaryFieldName, $requestFieldName, $meta, $data);
     }
@@ -81,7 +89,7 @@ class DataProvider extends AbstractDataProvider
     /**
      * Prepares image data array for UI component
      *
-     * @param string|null $fileName
+     * @param  string|null $fileName
      * @return array
      */
     protected function prepareImageData(?string $fileName): array
@@ -112,7 +120,7 @@ class DataProvider extends AbstractDataProvider
     /**
      * Returns full media URL to file.
      *
-     * @param string $fileName
+     * @param  string $fileName
      * @return string
      */
     protected function getMediaUrl(string $fileName): string
@@ -120,18 +128,18 @@ class DataProvider extends AbstractDataProvider
         return $this->storeManager
             ->getStore()
             ->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA)
-            . 'ManiyaTech/Slider/'
+            . $this->basePath
             . ltrim($fileName, '/');
     }
 
     /**
      * Returns relative media path.
      *
-     * @param string $fileName
+     * @param  string $fileName
      * @return string
      */
     protected function getMediaPath(string $fileName): string
     {
-        return 'ManiyaTech/Slider/' . ltrim($fileName, '/');
+        return $this->basePath . ltrim($fileName, '/');
     }
 }

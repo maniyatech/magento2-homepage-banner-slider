@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0"?>
 <!--
 /**
  * ManiyaTech
@@ -7,6 +7,7 @@
  * @package       ManiyaTech_HomepageBannerSlider
  */
  -->
+
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
         <section id="homepagebannerslider" showInDefault="1" showInWebsite="1" showInStore="1" type="text" translate="Homepage Banner Slider" sortOrder="90">
@@ -18,6 +19,12 @@
                 <field id="enable" translate="Enable Module" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Enable Module</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="allowed_formats" translate="label" type="multiselect" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Allowed Slider Image Formats</label>
+                    <source_model>ManiyaTech\HomepageBannerSlider\Model\Config\Source\ImageFormats</source_model>
+                    <validate>required-entry</validate>
+                    <depends><field id="enable">1</field></depends>
                 </field>
             </group>
             <group id="slider" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20">

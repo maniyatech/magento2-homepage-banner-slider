@@ -2,8 +2,8 @@
 /**
  * ManiyaTech
  *
- * @author        Milan Maniya
- * @package       ManiyaTech_HomepageBannerSlider
+ * @author  Milan Maniya
+ * @package ManiyaTech_HomepageBannerSlider
  */
 
 namespace ManiyaTech\HomepageBannerSlider\Controller\Adminhtml\Bannerslider;
@@ -36,10 +36,10 @@ class MassDelete extends \Magento\Backend\App\Action
     /**
      * Construct method
      *
-     * @param Context $context
-     * @param Filter $filter
+     * @param Context           $context
+     * @param Filter            $filter
      * @param CollectionFactory $collectionFactory
-     * @param Filesystem $filesystem
+     * @param Filesystem        $filesystem
      */
     public function __construct(
         Context $context,

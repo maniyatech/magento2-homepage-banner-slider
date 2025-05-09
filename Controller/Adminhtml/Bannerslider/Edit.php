@@ -2,8 +2,8 @@
 /**
  * ManiyaTech
  *
- * @author        Milan Maniya
- * @package       ManiyaTech_HomepageBannerSlider
+ * @author  Milan Maniya
+ * @package ManiyaTech_HomepageBannerSlider
  */
 
 namespace ManiyaTech\HomepageBannerSlider\Controller\Adminhtml\Bannerslider;
@@ -27,8 +27,8 @@ class Edit extends Action
     /**
      * Constructor
      *
-     * @param Action\Context $context
-     * @param PageFactory $resultPageFactory
+     * @param Action\Context      $context
+     * @param PageFactory         $resultPageFactory
      * @param BannersliderFactory $bannersliderFactory
      */
     public function __construct(

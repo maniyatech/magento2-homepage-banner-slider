@@ -2,8 +2,8 @@
 /**
  * ManiyaTech
  *
- * @author        Milan Maniya
- * @package       ManiyaTech_HomepageBannerSlider
+ * @author  Milan Maniya
+ * @package ManiyaTech_HomepageBannerSlider
  */
 
 namespace ManiyaTech\HomepageBannerSlider\Ui\Component\Listing\Columns\Bannerslider;
@@ -41,7 +41,7 @@ class Actions extends \Magento\Ui\Component\Listing\Columns\Column
     /**
      * Datasource function
      *
-     * @param array $dataSource
+     * @param  array $dataSource
      * @return array
      */
     public function prepareDataSource(array $dataSource)

@@ -2,20 +2,17 @@
 /**
  * ManiyaTech
  *
- * @author        Milan Maniya
- * @package       ManiyaTech_HomepageBannerSlider
+ * @author  Milan Maniya
+ * @package ManiyaTech_HomepageBannerSlider
  */
 
 namespace ManiyaTech\HomepageBannerSlider\Controller\Adminhtml\Bannerslider;
 
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
-use Magento\Framework\View\Result\PageFactory;
+use Magento\Framework\Exception\LocalizedException;
 use ManiyaTech\HomepageBannerSlider\Model\BannersliderFactory;
-use ManiyaTech\HomepageBannerSlider\Model\ImageUploader;
-use Magento\Framework\App\Filesystem\DirectoryList;
-use Magento\Framework\Filesystem;
-use Magento\Framework\Controller\Result\Redirect;
+use ManiyaTech\Core\Model\ImageUploader;
 
 /**
  * Class Save
@@ -23,10 +20,7 @@ use Magento\Framework\Controller\Result\Redirect;
  */
 class Save extends Action
 {
-    /**
-     * @var PageFactory
-     */
-    protected PageFactory $resultPageFactory;
+    private const BASE_PATH = 'ManiyaTech/Slider/';
 
     /**
      * @var BannersliderFactory
@@ -39,31 +33,26 @@ class Save extends Action
     protected ImageUploader $imageUploaderModel;
 
     /**
-     * @var Filesystem
+     * @var string
      */
-    protected Filesystem $filesystem;
+    public string $basePath;
 
     /**
      * Constructor
      *
-     * @param Context $context
-     * @param PageFactory $resultPageFactory
+     * @param Context             $context
      * @param BannersliderFactory $bannersliderFactory
-     * @param ImageUploader $imageUploaderModel
-     * @param Filesystem $filesystem
+     * @param ImageUploader       $imageUploaderModel
      */
     public function __construct(
         Context $context,
-        PageFactory $resultPageFactory,
         BannersliderFactory $bannersliderFactory,
         ImageUploader $imageUploaderModel,
-        Filesystem $filesystem
     ) {
         parent::__construct($context);
-        $this->resultPageFactory = $resultPageFactory;
         $this->bannersliderFactory = $bannersliderFactory;
         $this->imageUploaderModel = $imageUploaderModel;
-        $this->filesystem = $filesystem;
+        $this->basePath = self::BASE_PATH;
     }
 
     /**
@@ -73,7 +62,9 @@ class Save extends Action
      */
     public function execute()
     {
-        /** @var Redirect $resultRedirect */
+        /**
+         * @var Redirect $resultRedirect
+         */
         $resultRedirect = $this->resultRedirectFactory->create();
         $data = $this->getRequest()->getPostValue();
         $id = $this->getRequest()->getParam('id');
@@ -88,7 +79,7 @@ class Save extends Action
             if ($id) {
                 $model->load($id);
                 if (!$model->getId()) {
-                    throw new \Magento\Framework\Exception\LocalizedException(__('Invalid banner ID.'));
+                    throw new LocalizedException(__('Invalid banner ID.'));
                 }
             }
 
@@ -98,8 +89,19 @@ class Save extends Action
                 : 0;
 
             // Process images
-            $data['desktop_image'] = $this->processImage('desktop_image', $data, $model->getDesktopImage());
-            $data['mobile_image'] = $this->processImage('mobile_image', $data, $model->getMobileImage());
+            $data['desktop_image'] = $this->imageUploaderModel->processImage(
+                'desktop_image',
+                $data,
+                $model->getDesktopImage(),
+                $this->basePath
+            );
+
+            $data['mobile_image'] = $this->imageUploaderModel->processImage(
+                'mobile_image',
+                $data,
+                $model->getMobileImage(),
+                $this->basePath
+            );
 
             $model->setData($data);
             $model->save();
@@ -116,62 +118,12 @@ class Save extends Action
                 default => $resultRedirect->setPath('*/*/')
             };
 
-        } catch (\Magento\Framework\Exception\LocalizedException $e) {
+        } catch (LocalizedException $e) {
             $this->messageManager->addError($e->getMessage());
         } catch (\Exception $e) {
             $this->messageManager->addError(__('An error occurred while saving the banner.'));
         }
 
         return $resultRedirect->setPath('*/*/');
-    }
-
-    /**
-     * Handle image upload and removal.
-     *
-     * @param string $field
-     * @param array $data
-     * @param string|null $existingImage
-     * @return string
-     */
-    protected function processImage(string $field, array $data, ?string $existingImage): string
-    {
-        $imageData = $data[$field][0] ?? null;
-
-        // Image removed via admin
-        if (isset($imageData['deleted']) && $imageData['deleted'] == 1) {
-            $this->deleteImage($existingImage);
-            return '';
-        }
-
-        // New image uploaded
-        if (isset($imageData['name']) && isset($imageData['url'])) {
-            if ($existingImage && $existingImage !== $imageData['name']) {
-                $this->deleteImage($existingImage);
-            }
-            return $this->imageUploaderModel->saveMediaImage($imageData['name'], $imageData['url']);
-        }
-
-        // Keep existing
-        return $existingImage ?? '';
-    }
-
-    /**
-     * Delete image from media folder.
-     *
-     * @param string $imageName
-     * @return void
-     */
-    protected function deleteImage(string $imageName): void
-    {
-        if (!$imageName) {
-            return;
-        }
-
-        $mediaPath = 'ManiyaTech/Slider/' . ltrim($imageName, '/');
-        $mediaDirectory = $this->filesystem->getDirectoryWrite(DirectoryList::MEDIA);
-
-        if ($mediaDirectory->isExist($mediaPath)) {
-            $mediaDirectory->delete($mediaPath);
-        }
     }
 }

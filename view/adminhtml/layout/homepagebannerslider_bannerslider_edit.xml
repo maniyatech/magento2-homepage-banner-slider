@@ -14,5 +14,8 @@
         <referenceContainer name="content">
             <uiComponent name="homepagebannerslider_edit_form"/>
         </referenceContainer>
+        <referenceContainer name="after.body.start">
+            <block class="ManiyaTech\HomepageBannerSlider\Block\Adminhtml\BannerSlider" name="banner_slider" template="ManiyaTech_HomepageBannerSlider::banner_slider.phtml" />
+        </referenceContainer>
     </body>
 </page>

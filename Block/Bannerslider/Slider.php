@@ -2,8 +2,8 @@
 /**
  * ManiyaTech
  *
- * @author        Milan Maniya
- * @package       ManiyaTech_HomepageBannerSlider
+ * @author  Milan Maniya
+ * @package ManiyaTech_HomepageBannerSlider
  */
 
 namespace ManiyaTech\HomepageBannerSlider\Block\Bannerslider;
@@ -49,11 +49,11 @@ class Slider extends Template
     /**
      * Construct function
      *
-     * @param Template\Context $context
-     * @param ScopeConfigInterface $scopeConfig
-     * @param Collection $sliderCollection
+     * @param Template\Context      $context
+     * @param ScopeConfigInterface  $scopeConfig
+     * @param Collection            $sliderCollection
      * @param StoreManagerInterface $storeManagerInterface
-     * @param array $data
+     * @param array                 $data
      */
     public function __construct(
         Template\Context $context,
@@ -94,7 +94,7 @@ class Slider extends Template
     /**
      * Retrive system config
      *
-     * @param string $path
+     * @param  string $path
      * @return string
      */
     public function getSystemConfig($path)

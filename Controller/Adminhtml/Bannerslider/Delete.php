@@ -2,8 +2,8 @@
 /**
  * ManiyaTech
  *
- * @author        Milan Maniya
- * @package       ManiyaTech_HomepageBannerSlider
+ * @author  Milan Maniya
+ * @package ManiyaTech_HomepageBannerSlider
  */
 
 namespace ManiyaTech\HomepageBannerSlider\Controller\Adminhtml\Bannerslider;
@@ -40,10 +40,10 @@ class Delete extends \Magento\Backend\App\Action
     /**
      * Delete Construct method
      *
-     * @param Context $context
-     * @param ManagerInterface $messageManager
+     * @param Context             $context
+     * @param ManagerInterface    $messageManager
      * @param BannersliderFactory $bannersliderFactory
-     * @param Filesystem $filesystem
+     * @param Filesystem          $filesystem
      */
     public function __construct(
         Context $context,

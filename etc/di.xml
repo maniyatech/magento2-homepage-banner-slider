@@ -9,6 +9,17 @@
 -->
 
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="ManiyaTech\Core\Helper\Data">
+        <arguments>
+            <argument name="baseTmpPath" xsi:type="string">ManiyaTech/Slider/tmp/</argument>
+            <argument name="basePath" xsi:type="string">ManiyaTech/Slider/</argument>
+        </arguments>
+    </type>
+    
+    <type name="ManiyaTech\Core\Helper\Data">
+        <plugin name="slider_allowed_extensions" type="ManiyaTech\HomepageBannerSlider\Plugin\Helper\AllowImageFormat" />
+    </type>
+    
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">

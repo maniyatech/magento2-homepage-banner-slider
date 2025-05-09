@@ -1,12 +1,12 @@
 {
     "name": "maniyatech/magento2-homepage-banner-slider",
-    "description": "A responsive and customizable Magento 2 homepage banner slider using Owl Carousel, supporting image uploads, lazy loading, and multi-store views.",
+    "description": "A responsive and customizable Magento 2 homepage banner slider with Owl Carousel, supporting image uploads, lazy loading, multi-store views, and configurable allowed image formats.",
     "require": {
         "maniyatech/module-core": "*"
     },
     "type": "magento2-module",
     "license": "proprietary",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "authors": [
         {
           "name": "ManiyaTech",

@@ -2,8 +2,8 @@
 /**
  * ManiyaTech
  *
- * @author        Milan Maniya
- * @package       ManiyaTech_HomepageBannerSlider
+ * @author  Milan Maniya
+ * @package ManiyaTech_HomepageBannerSlider
  */
 
 namespace ManiyaTech\HomepageBannerSlider\Controller\Adminhtml\Bannerslider;
@@ -33,9 +33,9 @@ class MassStatus extends \Magento\Backend\App\Action
     /**
      * MassStatus Constructor
      *
-     * @param Context $context
-     * @param Filter $filter
-     * @param CollectionFactory $collectionFactory
+     * @param Context             $context
+     * @param Filter              $filter
+     * @param CollectionFactory   $collectionFactory
      * @param BannersliderFactory $bannersliderFactory
      */
     public function __construct(

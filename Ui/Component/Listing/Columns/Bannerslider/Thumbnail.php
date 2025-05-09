@@ -2,11 +2,9 @@
 /**
  * ManiyaTech
  *
- * @author   Milan Maniya
- * @package  ManiyaTech_HomepageBannerSlider
+ * @author  Milan Maniya
+ * @package ManiyaTech_HomepageBannerSlider
  */
-
-declare(strict_types=1);
 
 namespace ManiyaTech\HomepageBannerSlider\Ui\Component\Listing\Columns\Bannerslider;
 
@@ -16,10 +14,6 @@ use Magento\Framework\View\Element\UiComponentFactory;
 use Magento\Store\Model\StoreManagerInterface;
 use Magento\Ui\Component\Listing\Columns\Column;
 
-/**
- * Class Thumbnail
- * Renders image thumbnails in the admin grid column.
- */
 class Thumbnail extends Column
 {
     private const ALT_FIELD = 'title';
@@ -37,12 +31,12 @@ class Thumbnail extends Column
     /**
      * Thumbnail constructor.
      *
-     * @param ContextInterface $context
-     * @param UiComponentFactory $uiComponentFactory
-     * @param UrlInterface $urlBuilder
+     * @param ContextInterface      $context
+     * @param UiComponentFactory    $uiComponentFactory
+     * @param UrlInterface          $urlBuilder
      * @param StoreManagerInterface $storeManager
-     * @param array $components
-     * @param array $data
+     * @param array                 $components
+     * @param array                 $data
      */
     public function __construct(
         ContextInterface $context,
@@ -60,7 +54,7 @@ class Thumbnail extends Column
     /**
      * Prepare data source for image thumbnail column.
      *
-     * @param array $dataSource
+     * @param  array $dataSource
      * @return array
      */
     public function prepareDataSource(array $dataSource): array
@@ -96,7 +90,7 @@ class Thumbnail extends Column
     /**
      * Get alt text for the image column.
      *
-     * @param array $row
+     * @param  array $row
      * @return string|null
      */
     protected function getAlt(array $row): ?string

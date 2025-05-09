@@ -7,7 +7,8 @@
  * @package       ManiyaTech_HomepageBannerSlider
  */
  -->
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Backend/etc/menu.xsd">
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
     	<add id="ManiyaTech_HomepageBannerSlider::main" title="Homepage Banner Slider" translate="Homepage Banner Slider" module="ManiyaTech_HomepageBannerSlider" parent="ManiyaTech_Core::core" sortOrder="90" resource="ManiyaTech_HomepageBannerSlider::main" dependsOnConfig="homepagebannerslider/general/enable"/>
 

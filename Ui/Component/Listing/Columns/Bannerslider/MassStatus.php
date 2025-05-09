@@ -2,8 +2,8 @@
 /**
  * ManiyaTech
  *
- * @author        Milan Maniya
- * @package       ManiyaTech_HomepageBannerSlider
+ * @author  Milan Maniya
+ * @package ManiyaTech_HomepageBannerSlider
  */
 
 namespace ManiyaTech\HomepageBannerSlider\Ui\Component\Listing\Columns\Bannerslider;
@@ -60,7 +60,7 @@ class MassStatus implements \JsonSerializable
      * Constructor
      *
      * @param UrlInterface $urlBuilder
-     * @param array $data
+     * @param array        $data
      */
     public function __construct(
         UrlInterface $urlBuilder,

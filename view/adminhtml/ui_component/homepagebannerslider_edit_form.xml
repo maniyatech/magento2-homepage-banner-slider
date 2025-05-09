@@ -300,7 +300,7 @@
                     <item name="dataScope" xsi:type="string">desktop_image</item>
                     <item name="sortOrder" xsi:type="number">55</item>
                     <item name="uploaderConfig" xsi:type="array">
-                        <item name="url" xsi:type="url" path="*/bannerslider/uploader">
+                        <item name="url" xsi:type="url" path="maniyatechcore/image/uploader">
                             <param name="target_element_id">desktop_image</param>
                             <param name="type">image</param>
                         </item>
@@ -325,7 +325,7 @@
                     <item name="dataScope" xsi:type="string">mobile_image</item>
                     <item name="sortOrder" xsi:type="number">60</item>
                     <item name="uploaderConfig" xsi:type="array">
-                        <item name="url" xsi:type="url" path="*/bannerslider/uploader">
+                        <item name="url" xsi:type="url" path="maniyatechcore/image/uploader">
                             <param name="target_element_id">mobile_image</param>
                             <param name="type">image</param>
                         </item>

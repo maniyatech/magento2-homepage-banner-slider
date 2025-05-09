@@ -13,6 +13,7 @@
         <homepagebannerslider>
             <general>
                 <enable>1</enable>
+                <allowed_formats>jpg,jpeg,png,svg,gif</allowed_formats>
             </general>
              <slider>
                 <autoplay>1</autoplay>

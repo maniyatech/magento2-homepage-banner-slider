@@ -2,8 +2,8 @@
 /**
  * ManiyaTech
  *
- * @author        Milan Maniya
- * @package       ManiyaTech_HomepageBannerSlider
+ * @author  Milan Maniya
+ * @package ManiyaTech_HomepageBannerSlider
  */
 
 namespace ManiyaTech\HomepageBannerSlider\Controller\Adminhtml\Bannerslider;
@@ -23,7 +23,7 @@ class NewAction extends \Magento\Backend\App\Action
     /**
      * NewAction constructor.
      *
-     * @param Context $context
+     * @param Context        $context
      * @param ForwardFactory $resultForwardFactory
      */
     public function __construct(
