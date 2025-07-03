@@ -13,7 +13,7 @@
         <resources>
             <resource id="Magento_Backend::admin">
                 <resource id="ManiyaTech_Core::core">
-                    <resource id="ManiyaTech_HomepageBannerSlider::main" title="Homepage Banner Slider Settings" translate="title" sortOrder="90">
+                    <resource id="ManiyaTech_HomepageBannerSlider::main" title="Homepage Banner Slider Settings" translate="title" sortOrder="110">
                         <resource id="ManiyaTech_HomepageBannerSlider::homepagebannerslider" title="Manage Homepage Banner Slider" translate="title" sortOrder="10"/>
                         <resource id="ManiyaTech_HomepageBannerSlider::configuration_menu" title="Configurations" translate="title" sortOrder="20"/>
                     </resource>
@@ -22,7 +22,7 @@
                     <resource id="Magento_Backend::stores_settings">
                         <resource id="Magento_Config::config">
                             <resource id="ManiyaTech_Core::config">
-                                <resource id="ManiyaTech_HomepageBannerSlider::config_bannerslider" title="Homepage Banner Slider" translate="title" sortOrder="90"/>
+                                <resource id="ManiyaTech_HomepageBannerSlider::config_bannerslider" title="Homepage Banner Slider" translate="title" sortOrder="110"/>
                             </resource>
                         </resource>
                     </resource>

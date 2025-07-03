@@ -1,8 +1,8 @@
 /**
  * ManiyaTech
  *
- * @author  Milan Maniya
- * @package ManiyaTech_HomepageBannerSlider
+ * @author        Milan Maniya
+ * @package       ManiyaTech_HomepageBannerSlider
  */
 
 var config = {
